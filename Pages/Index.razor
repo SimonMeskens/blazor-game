@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<Xterm @ref="_terminal" Options="_options" OnFirstRender="@OnFirstRender" />
+
+@code {
+    private Xterm _terminal;
+
+    private TerminalOptions _options = new TerminalOptions
+    {
+        CursorBlink = true,
+        CursorStyle = CursorStyle.Bar,
+    };
+
+    private async Task OnFirstRender()
+    {
+        await _terminal.WriteLine("Hello World");
+    }
+}
+
